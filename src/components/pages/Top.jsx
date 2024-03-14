@@ -3,9 +3,12 @@ import { SecondaryButton } from "../atoms/button/SecondaryButton"
 import { useHistory } from "react-router-dom"
 import { useContext } from "react"
 import { UserContext } from "../../providers/UserProvider"
+import { useSetRecoilState } from "recoil"
+
 export const Top = () => {
     const history = useHistory()
-    const { setUserInfo } = useContext(UserContext)
+    // const { setUserInfo } = useContext(UserContext)
+    const setUserInfo = useSetRecoilState(userState)
 
     const onClickAdmin = () => {
         setUserInfo({isAdmin: true})
